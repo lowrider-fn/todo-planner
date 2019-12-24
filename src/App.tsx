@@ -1,15 +1,29 @@
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld';
+import { Component, Vue,Emit } from 'vue-property-decorator';
+import VCalendar from '@/components/calendar/Calendar';
+import TodoList from '@/components/todo-list/TodoList';
 
-import './App.css'
+import styles from './App.css?module';
+
 
 @Component
 export default class App extends Vue {
+  public currentDay:Date = new Date()
+
+  @Emit()
+  changeCurrentDay(date:Date){
+    this.currentDay = date
+  }
+
   render() {
     return (
-      <div id="app">
-        <img alt="Vue logo" src={require('./assets/logo.png')} />
-        <HelloWorld msg1="Welcome to Your Vue.js + TypeScript App"/>
+      <div id="app" class={styles.app}>
+        <div class={styles.app__inner}>
+          <VCalendar 
+            currentDay={this.currentDay}
+            onChangeDate={this.changeCurrentDay}
+            />
+          {/* <TodoList /> */}
+        </div>
       </div>
     )
   }

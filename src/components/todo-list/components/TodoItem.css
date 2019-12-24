@@ -12,3 +12,9 @@ h3 {
   a {
     color: #42b983;
   }
+.vc-arrows-container{
+  display: none;
+}
+.vc-title[data-v-d137fa42] {
+  cursor: default;
+}

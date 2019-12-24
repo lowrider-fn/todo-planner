@@ -1,0 +1,37 @@
+  .vc-arrows-container{
+    display: none;
+  }
+  .vc-title,.vc-weekday {
+    padding-top: 0;
+    cursor: default;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+  .vc-day-content {
+    padding: 22px 22px;
+  }
+  .vc-pane{
+    padding: 15px;
+  }
+  .vc-bars .vc-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 44px;
+    height: 100%;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: rgb(12, 227, 235);
+  }
+  .vc-highlight {
+    background-color: transparent;
+  }
+  .vc-highlights + .vc-day-content {
+    color: red;
+    font-weight: 500;
+  }
+  .vc-day-content {
+    transition: all .3s linear;
+    font-weight: 500;
+  }
