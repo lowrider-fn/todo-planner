@@ -27,11 +27,11 @@
   .vc-highlight {
     background-color: transparent;
   }
+
   .vc-highlights + .vc-day-content {
     color: red;
-    font-weight: 500;
   }
+
   .vc-day-content {
-    transition: all .3s linear;
     font-weight: 500;
   }

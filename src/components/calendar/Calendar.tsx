@@ -1,6 +1,6 @@
 import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 import { VueComponent } from '@/shims-vue';
-import { setupCalendar, Calendar } from 'v-calendar'
+import { setupCalendar, DatePicker } from 'v-calendar'
 
 import  './v-calendar.css'
 import styles from './Calendar.css?module';
@@ -14,7 +14,8 @@ setupCalendar({
     weekdays: 'WW',
     data: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
   },
-  
+  isInline:true,
+  isExpanded:true
 })
 interface Props {
   currentDay: Date
@@ -39,27 +40,29 @@ export default class VCalendar extends VueComponent<Props> {
     todos:[]
   };
 
-  private attributes:object= [
+  private attributes:any= [
     {
       dates: new Date(),
-      todos:[]
+      todos:[{}]
     },
     {
       dates: new Date(2019,11,23),
-      todos:[]
+      todos:[{}],
     },
   ];
+
     @Emit()
-     changeDate(e:any){
-      return  this.dateSUbstr(e.date)
+    private changeDate(e:any){
+      return e.date
     }
 
-  public get setHighlightsProperty(){
+  private get setHighlightsProperty(){
     const attrs:any = this.attributes
-     attrs.forEach(attr=>{
-
+     attrs.forEach((attr:any,i:number)=>{
+      attr.key = i
       attr.highlight = attr.todos.length > 0;
-      attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates);
+      attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates) 
+      
     })
     return attrs
   }
@@ -68,16 +71,15 @@ export default class VCalendar extends VueComponent<Props> {
   private dateSUbstr(date:Date){
     return date.toString().substr(0,15)
   }
-
-
   
   public render() {
     return (
       <div class={styles.calendar}>
-        <Calendar
+        <DatePicker 
           attributes={this.setHighlightsProperty}
           onDayclick={this.changeDate}
-          v-model={this.currentDay}
+          isInline={true}
+          value={this.currentDay}
           />
       </div>
     )
