@@ -16,9 +16,9 @@ export default class Checkbox extends VueComponent<Props> {
   private isDisabled!: boolean;
 
   @Emit()
-  change(e:object) {
+  change(e:any) {
     console.log(e);
-    this.$emit('change',e)
+    return e
   }
 
   render() {
@@ -28,7 +28,7 @@ export default class Checkbox extends VueComponent<Props> {
             <input class={styles.checkbox__inp} type="checkbox"
                    checked={this.isChecked} 
                    disabled={this.isDisabled}
-                   input={this.change}
+                   onInput={this.change}
             />
             <span class={styles['checkbox__icon-wrap']}>
                 <svg class={styles.checkbox__icon} viewBox="0 0 18 14" id="icon-checkbox" fill="currentColor" width="100%" height="100%">

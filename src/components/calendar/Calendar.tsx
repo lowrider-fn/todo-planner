@@ -49,6 +49,11 @@ export default class VCalendar extends VueComponent<Props> {
       todos:[]
     },
   ];
+    @Emit()
+     changeDate(e:any){
+      return  this.dateSUbstr(e.date)
+    }
+
   public get setHighlightsProperty(){
     const attrs:any = this.attributes
      attrs.forEach(attr=>{
@@ -59,23 +64,19 @@ export default class VCalendar extends VueComponent<Props> {
     return attrs
   }
 
-  @Emit()
+
   private dateSUbstr(date:Date){
     return date.toString().substr(0,15)
   }
 
-  private dayHandler(e:any){e.isFocusable=false
-    console.log(e);
-    
-    this.$emit('changeDate', this.dateSUbstr(e.date))
-  }
+
   
   public render() {
     return (
       <div class={styles.calendar}>
         <Calendar
           attributes={this.setHighlightsProperty}
-          onDayclick={this.dayHandler}
+          onDayclick={this.changeDate}
           v-model={this.currentDay}
           />
       </div>

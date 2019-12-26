@@ -15,12 +15,12 @@ export default class Input extends VueComponent<Props> {
   private placeholder!: string;
 
   @Emit()
-  inputHandler(e:KeyboardEvent) {
+  input(e:KeyboardEvent) {
     const enter:string = 'Enter';
     const isFull:boolean = this.task.trim().length > 0;
 
     if(e.key === enter && isFull){
-      this.$emit('input',this.task)
+      return this.task
     }
   }
   render() {
@@ -30,7 +30,7 @@ export default class Input extends VueComponent<Props> {
           type="text" 
           placeholder={this.placeholder} 
           v-model={this.task}
-          onKeydown={this.inputHandler}
+          onKeydown={this.input}
         />
     )
   }

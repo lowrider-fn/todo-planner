@@ -7,10 +7,10 @@ import styles from './App.css?module';
 
 @Component
 export default class App extends Vue {
+  
   public currentDay:Date = new Date()
 
-  @Emit()
-  changeCurrentDay(date:Date){
+  private changeCurrentDay(date:Date){
     this.currentDay = date
   }
 
@@ -20,7 +20,7 @@ export default class App extends Vue {
         <div class={styles.app__inner}>
           <VCalendar 
             currentDay={this.currentDay}
-            onChangeDate={this.changeCurrentDay}
+            on-change-date={this.changeCurrentDay}
             />
           {/* <TodoList /> */}
         </div>
