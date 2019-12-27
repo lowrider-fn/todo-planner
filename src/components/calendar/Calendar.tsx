@@ -18,13 +18,14 @@ setupCalendar({
   isExpanded:true
 })
 interface Props {
-  currentDay: Date
+  currentDay: Date;
+  days:[]
 }
 
 @Component 
 export default class VCalendar extends VueComponent<Props> {
-  @Prop()
-  private currentDay!: Date;
+  @Prop() private currentDay!: Date;
+  @Prop() private days!:[];
 
   private defaultTodo:object = {
     id:'',
@@ -32,39 +33,18 @@ export default class VCalendar extends VueComponent<Props> {
     isPerformed:false
   };
 
-  private currentTodo:object={}
-
-  private defaultAttr:object={
-    dates: new Date(),
-    highlight: true,
-    todos:[]
-  };
-
-  private attributes:any= [
-    {
-      dates: new Date(),
-      todos:[{}]
-    },
-    {
-      dates: new Date(2019,11,23),
-      todos:[{}],
-    },
-  ];
-
-    @Emit()
-    private changeDate(e:any){
-      return e.date
-    }
+  @Emit()
+  private changeDate(e:any){
+    return e.date
+  }
 
   private get setHighlightsProperty(){
-    const attrs:any = this.attributes
-     attrs.forEach((attr:any,i:number)=>{
+     this.days.forEach((attr:any, i:number)=> {
       attr.key = i
       attr.highlight = attr.todos.length > 0;
       attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates) 
-      
     })
-    return attrs
+    return this.days
   }
 
 
