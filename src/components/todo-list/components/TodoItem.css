@@ -1,20 +1,22 @@
-h3 {
-    margin: 40px 0 0;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
-  }
-.vc-arrows-container{
-  display: none;
+.todoItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:15px 20px ;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  position: relative;
 }
-.vc-title[data-v-d137fa42] {
-  cursor: default;
+.checked:before{
+  content: '';
+  height: 1px;
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  background: red;
+}
+.todoItem__text{
+  margin: 0;
+  color: #2c3e50;
 }

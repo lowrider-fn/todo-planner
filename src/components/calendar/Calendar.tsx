@@ -14,12 +14,10 @@ setupCalendar({
     weekdays: 'WW',
     data: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
   },
-  isInline:true,
-  isExpanded:true
 })
 interface Props {
   currentDay: Date;
-  days:[]
+  days:any[]
 }
 
 @Component 
@@ -27,14 +25,7 @@ export default class VCalendar extends VueComponent<Props> {
   @Prop() private currentDay!: Date;
   @Prop() private days!:[];
 
-  private defaultTodo:object = {
-    id:'',
-    text:'', 
-    isPerformed:false
-  };
-
-  @Emit()
-  private changeDate(e:any){
+  @Emit() private changeDate(e:any){
     return e.date
   }
 

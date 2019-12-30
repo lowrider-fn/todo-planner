@@ -7,40 +7,33 @@ import styles from './App.css?module';
 
 @Component
 export default class App extends Vue {
-
-  private days: object [] = [];
-  private currentDay:Date = new Date();
-
-  private changeCurrentDay(date:Date){
-    this.currentDay = date
-  }
-
-created(){
-  const mm:number = this.currentDay.getMonth();
-  const yyyy:number = this.currentDay.getFullYear();
-  const mounthLength:number = 33 - new Date(yyyy, mm, 33).getDate()
-
-  for(let i = 1; i <= mounthLength; i++){
-    this.days.push({
-      dates:new Date(yyyy, mm, i),
-      todos:[]
-    })
-  }
-}
-
-  //  daysLengthFromCurrentMounth(){
-    
   
+  private changeCurrentDay(date:Date){
+    this.$store.commit('Todo/CHANGE_TODO_CHECKED',date)
+  }
+
+  private addTodo(todoVal:string){
+    this.$store.commit('Todo/ADD_TODO',todoVal)
+  }
+
+  private changeTodoChecked(e:any){
+    this.$store.commit('Todo/CHANGE_TODO_CHECKED',e)
+  }
+
   render() {
     return (
       <div id="app" class={styles.app}>
         <div class={styles.app__inner}>
           <VCalendar 
-            currentDay={this.currentDay}
+            currentDay={this.$store.state.Todo.currentDay}
             on-change-date={this.changeCurrentDay}
-            days={this.days}
+            days={this.$store.state.Todo.days}
             />
-          {/* <TodoList /> */}
+          <TodoList
+           todos={this.$store.getters['Todo/TODOS']}
+           on-add-todo={this.addTodo}
+           on-change-todo-checked={this.changeTodoChecked}
+           />
         </div>
       </div>
     )

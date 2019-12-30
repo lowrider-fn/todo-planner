@@ -5,20 +5,15 @@ import styles from './Checkbox.css?module'
 
 interface Props {
   isChecked: boolean,
-  isDisabled: boolean
 }
 
 @Component
 export default class Checkbox extends VueComponent<Props> {
 
-  @Prop()
-  private isChecked!: boolean;
-  private isDisabled!: boolean;
+  @Prop() private isChecked!: boolean;
 
-  @Emit()
-  change(e:any) {
-    console.log(e);
-    return e
+  @Emit() private change(e:any) {
+    return e.target.checked
   }
 
   render() {
@@ -27,7 +22,6 @@ export default class Checkbox extends VueComponent<Props> {
         <span class={styles.checkbox__wrap}>
             <input class={styles.checkbox__inp} type="checkbox"
                    checked={this.isChecked} 
-                   disabled={this.isDisabled}
                    onInput={this.change}
             />
             <span class={styles['checkbox__icon-wrap']}>
@@ -36,7 +30,7 @@ export default class Checkbox extends VueComponent<Props> {
                 </svg>
             </span>
         </span>
-    </div>
+      </div>
     )
   }
 }
