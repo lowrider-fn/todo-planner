@@ -1,0 +1,84 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "function-constructor": true ,
+    "no-var-keyword": true,
+    "no-duplicate-variable": true,
+    "no-default-export": false,
+    "unnecessary-else": true,
+    "no-self-assign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-redeclare": "error",
+    "no-lonely-if": "error",
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 1
+      }
+    ], 
+    "prefer-destructuring": ["error", {
+      "array": true,
+      "object": true
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+    "new-parens": "error",
+    "block-spacing": "error",
+    "no-const-assign": "error",
+    "no-this-before-super": "warn",
+    "no-reserved-keys": 0,
+    "no-undef": "warn",
+    "no-unused-vars": "warn",
+    "constructor-super": "warn",
+    "valid-typeof": "warn",
+    "import-spacing":false,
+    "prefer-const": false,
+    "semi": [
+      "warn",
+      "always",
+      {
+        "omitLastInOneLineBlock": true
+      }
+    ],
+    "max-line-length":false,
+    "quotemark": [true, "single", "tempate"],
+    "one-variable-per-declaration":false,
+    "variable-name":false,
+    "radix": false,
+    "no-bitwise": false,
+    "no-shadowed-variable":false,
+    "no-string-literal": false,
+    "jsdoc-format": false,
+    "object-literal-sort-keys":false,
+    "no-console":false,
+    "class-name": false,
+    "interface-name":false,
+    "align": [true, "arguments", "elements", "members", "parameters", "statements"],
+    "singleline-html-element-content-newline":0,
+    "no-extra-semi": "error",
+    "callback-return": "error",
+    "no-constant-condition": "error",
+    "no-unreachable": "error",
+    "no-unneeded-ternary": "error",
+    "no-dupe-keys": "error",
+    "no-dupe-class-members": "error",
+    "key-spacing": [1, {
+      "singleLine": {
+        "beforeColon": false,
+        "afterColon": true
+      },
+      "multiLine": {
+        "align": "colon"
+      }
+    }]
+  },
+  "jsRules": {
+      "max-line-length": {
+          "options": [120]
+      }
+  }
+}

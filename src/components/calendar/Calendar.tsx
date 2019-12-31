@@ -1,58 +1,57 @@
-import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 import { VueComponent } from '@/shims-vue';
-import { setupCalendar, DatePicker } from 'v-calendar'
+import { DatePicker, setupCalendar } from 'v-calendar';
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
-import  './v-calendar.css'
 import styles from './Calendar.css?module';
+import  './v-calendar.css';
 
 setupCalendar({
-  titlePosition:'left',
+  titlePosition: 'left',
   firstDayOfWeek: 2 ,
-  navVisibility:'hidden',
-  masks:{
+  navVisibility: 'hidden',
+  masks: {
     title: 'MMMM YYYY',
     weekdays: 'WW',
     data: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
   },
-})
+});
 interface Props {
   currentDay: Date;
-  days:any[]
+  days: any[];
 }
 
-@Component 
+@Component
 export default class VCalendar extends VueComponent<Props> {
-  @Prop() private currentDay!: Date;
-  @Prop() private days!:[];
 
-  @Emit() private changeDate(e:any){
-    return e.date
-  }
-
-  private get setHighlightsProperty(){
-     this.days.forEach((attr:any, i:number)=> {
-      attr.key = i
+  private get setHighlightsProperty() {
+     this.days.forEach((attr: any, i: number) => {
+      attr.key = i;
       attr.highlight = attr.todos.length > 0;
-      attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates) 
-    })
-    return this.days
+      attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates);
+    });
+     return this.days;
   }
+  @Prop() private currentDay!: Date;
+  @Prop() private days!: [];
 
-
-  private dateSUbstr(date:Date){
-    return date.toString().substr(0,15)
-  }
-  
   public render() {
     return (
       <div class={styles.calendar}>
-        <DatePicker 
+        <DatePicker
           attributes={this.setHighlightsProperty}
           onDayclick={this.changeDate}
           isInline={true}
           value={this.currentDay}
           />
       </div>
-    )
+    );
+  }
+
+  @Emit() private changeDate(e: any) {
+    return e.date;
+  }
+
+  private dateSUbstr(date: Date) {
+    return date.toString().substr(0, 15);
   }
 }

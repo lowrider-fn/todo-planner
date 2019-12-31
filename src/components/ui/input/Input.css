@@ -1,15 +1,16 @@
 
-.input{
-    border-radius: 8px;
-    padding: 10px 15px;
-    border: 1px solid #cbd5e0;
-    outline: none;
-    width: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    color: #2c3e50;
+.input {
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: 1px solid #CBD5E0;
+  outline: none;
+  width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  color: #2C3E50;
 }
-.input:focus{
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+.input:focus {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
