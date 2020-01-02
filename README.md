@@ -1,4 +1,4 @@
-# Todo planner [example](https://cli.vuejs.org/config/)
+# Todo planner [example](https://lowrider-fn.github.io/todo-planner/)
 
 ## Project setup
 ```
