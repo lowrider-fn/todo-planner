@@ -1,8 +1,11 @@
+@import 'src/assets/variables/colors';
+@import 'src/assets/variables/sizes';
+
 .todoList {
   padding: 30px;
-  border: 1px solid #CBD5E0;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border: 1px solid $grey;
+  border-radius: $br;
+  box-shadow: 0 0 10px $lightShadow;
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;

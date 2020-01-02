@@ -2,7 +2,7 @@ import VCalendar from '@/components/calendar/Calendar';
 import TodoList from '@/components/todo-list/TodoList';
 import { Component, Vue } from 'vue-property-decorator';
 
-import styles from './App.css?module';
+import styles from './app.scss?module';
 
 @Component
 export default class App extends Vue {
@@ -27,7 +27,7 @@ export default class App extends Vue {
   }
 
   private changeCurrentDay(date: Date) {
-    this.$store.commit('Todo/CHANGE_TODO_CHECKED', date);
+    this.$store.commit('Todo/CHANGE_CURRENT_DAY', date);
   }
 
   private addTodo(todoVal: string) {

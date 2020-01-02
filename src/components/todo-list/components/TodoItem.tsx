@@ -2,7 +2,7 @@ import Checkbox from '@/components/ui/checkbox/Checkbox';
 import { VueComponent } from '@/shims-vue';
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
-import styles from './TodoItem.css?module';
+import styles from './todoItem.scss?module';
 
 interface Props {
   todo: any;

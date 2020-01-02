@@ -1,9 +1,9 @@
 import { VueComponent } from '@/shims-vue';
 import { DatePicker, setupCalendar } from 'v-calendar';
-import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
+import { Component, Emit, Prop } from 'vue-property-decorator';
 
-import styles from './Calendar.css?module';
-import  './v-calendar.css';
+import styles from './calendar.scss?module';
+import  './v-calendar.scss';
 
 setupCalendar({
   titlePosition: 'left',

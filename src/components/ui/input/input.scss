@@ -1,14 +1,16 @@
 
+@import 'src/assets/variables/colors';
+
 .input {
   border-radius: 8px;
   padding: 10px 15px;
-  border: 1px solid #CBD5E0;
+  border: 1px solid $grey;
   outline: none;
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
   margin-bottom: 15px;
-  color: #2C3E50;
+  color: $black;
 }
 
 .input:focus {

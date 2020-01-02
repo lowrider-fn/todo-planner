@@ -7,6 +7,7 @@ export class Todo {
   }
 
   @Getter() public get TODOS() {
+
     return this.currentDayObj.todos;
   }
 

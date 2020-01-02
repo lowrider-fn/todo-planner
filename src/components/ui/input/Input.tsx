@@ -1,7 +1,7 @@
 import { VueComponent } from '@/shims-vue';
 import { Component, Emit, Prop } from 'vue-property-decorator';
 
-import styles from './Input.css?module';
+import styles from './input.scss?module';
 
 interface Props {
   placeholder: string;

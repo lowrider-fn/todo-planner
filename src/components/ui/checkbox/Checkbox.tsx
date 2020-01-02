@@ -1,7 +1,7 @@
 import { VueComponent } from '@/shims-vue';
 import { Component, Emit, Prop } from 'vue-property-decorator';
 
-import styles from './Checkbox.css?module';
+import styles from './checkbox.scss?module';
 
 interface Props {
   isChecked: boolean;

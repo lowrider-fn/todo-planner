@@ -1,0 +1,58 @@
+@import 'src/assets/variables/colors';
+
+.vc-container {
+
+  .vc-arrows-container {
+    display: none;
+  }
+
+  .vc-title,.vc-weekday {
+    padding-top: 0;
+    cursor: default;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  .vc-day-content {
+    padding: 22px 22px;
+    color: $black;
+    font-weight: 500;
+  }
+
+  .vc-pane {
+    padding: 15px;
+  }
+
+  .vc-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 44px;
+    height: 100%;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: $blue;
+  }
+
+  .vc-highlight {
+    background-color: transparent;
+  }
+
+  .vc-highlights + .vc-day-content {
+    color: $red;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
