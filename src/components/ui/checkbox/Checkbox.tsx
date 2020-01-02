@@ -20,9 +20,19 @@ export default class Checkbox extends VueComponent<Props> {
                    checked={this.isChecked}
                    onInput={this.change}
             />
-            <span class={styles['checkbox__icon-wrap']}>
-                <svg class={styles.checkbox__icon} viewBox='0 0 18 14' id='icon-checkbox' fill='currentColor' width='100%' height='100%'>
-                    <path d='M1 7.567l4.666 4.755L16.76 1' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' />
+            <span class={styles.checkbox__iconWrap}>
+                <svg
+                  class={styles.checkbox__icon}
+                  viewBox='0 0 18 14'
+                  fill='currentColor'
+                >
+                    <path
+                      d='M1 7.567l4.666 4.755L16.76 1'
+                      stroke-width='2'
+                      stroke='currentColor'
+                      fill='none'
+                      stroke-linecap='round'
+                     />
                 </svg>
             </span>
         </span>

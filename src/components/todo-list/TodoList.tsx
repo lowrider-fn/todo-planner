@@ -21,7 +21,8 @@ export default class ToDoList extends VueComponent<Props> {
       return (
         <div class={styles.todoList}>
           <h1 class={styles.todoList__title}>События</h1>
-          <Input on-enter={ this.addTodo}
+          <Input
+            on-enter={ this.addTodo}
             placeholder='Добавить событие'
           />
           {

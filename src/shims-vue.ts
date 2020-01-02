@@ -5,9 +5,9 @@ type CSSClass = (string | {
 });
 
 export class VueComponent<Props = {}> extends Vue {
-	// @ts-ignore
-	public $props: Props & {
-        key?: string
-        class?: CSSClass | CSSClass[],
-    };
+  // @ts-ignore
+  public $props: Props & {
+    key?: string
+    class?: CSSClass | CSSClass[],
+  };
 }

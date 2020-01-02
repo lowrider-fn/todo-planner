@@ -24,13 +24,15 @@ interface Props {
 export default class VCalendar extends VueComponent<Props> {
 
   private get setHighlightsProperty() {
-     this.days.forEach((attr: any, i: number) => {
-      attr.key = i;
-      attr.highlight = attr.todos.length > 0;
-      attr.bar = this.dateSUbstr(this.currentDay) === this.dateSUbstr(attr.dates);
-    });
-     return this.days;
+    return this.days.map((day: any, i: number) => ({
+      dates: day.dates,
+      key    : i,
+      bar : this.currentDay.getDate() === day.dates.getDate(),
+      content: day.todos.length > 0 && !day.todos.every((todo: any) => todo.isChecked) && 'vc-has-load',
+    }));
+
   }
+
   @Prop() private currentDay!: Date;
   @Prop() private days!: [];
 
@@ -49,9 +51,5 @@ export default class VCalendar extends VueComponent<Props> {
 
   @Emit() private changeDate(e: any) {
     return e.date;
-  }
-
-  private dateSUbstr(date: Date) {
-    return date.toString().substr(0, 15);
   }
 }

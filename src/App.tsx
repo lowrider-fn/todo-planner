@@ -7,7 +7,7 @@ import styles from './app.scss?module';
 @Component
 export default class App extends Vue {
 
-  public render() {
+   public render() {
     return (
       <div id='app' class={styles.app}>
         <div  class={styles.app__inner}>
@@ -26,15 +26,15 @@ export default class App extends Vue {
     );
   }
 
-  private changeCurrentDay(date: Date) {
+   private changeCurrentDay(date: Date) {
     this.$store.commit('Todo/CHANGE_CURRENT_DAY', date);
   }
 
-  private addTodo(todoVal: string) {
+   private addTodo(todoVal: string) {
     this.$store.commit('Todo/ADD_TODO', todoVal);
   }
 
-  private changeTodoChecked(e: any) {
+   private changeTodoChecked(e: any) {
     this.$store.commit('Todo/CHANGE_TODO_CHECKED', e);
   }
 }
